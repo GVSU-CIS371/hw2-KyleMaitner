@@ -1,10 +1,20 @@
 <template>
   <div class="froth">
-    <div v-for=" in 5" class="foam"></div>
+    <div
+      v-for=" in 5"
+      class="foam"
+      :style="{ backgroundColor: beverageStore.currentCreamer.color }"
+    ></div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+
+<script setup lang="ts">
+import {useBeverageStore } from "../stores/beverageStore";
+const beverageStore = useBeverageStore();
+</script>
+
+
 <style lang="scss" scoped>
 .froth {
   overflow: visible;
@@ -24,15 +34,18 @@
   position: absolute;
 }
 
+
 .foam:nth-child(1) {
   top: 0px;
   left: -3px;
 }
 
+
 .foam:nth-child(2) {
   top: 0px;
   left: 55px;
 }
+
 
 .foam:nth-child(3) {
   width: 30px;
@@ -42,6 +55,7 @@
   left: 30px;
 }
 
+
 .foam:nth-child(4) {
   width: 30px;
   height: 30px;
@@ -49,6 +63,7 @@
   top: 5px;
   right: -2px;
 }
+
 
 .foam:nth-child(5) {
   top: 2px;
